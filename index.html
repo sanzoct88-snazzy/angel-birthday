@@ -1,0 +1,2076 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>A Little Surprise For You 💜</title>
+
+<style>
+
+/* =========================================================
+   ✏️ EASY EDIT AREA
+   ========================================================= */
+
+:root {
+    --lavender: #b99be8;
+    --deep-purple: #8060c8;
+    --light-purple: #e8dcff;
+    --cream: #fffbe9;
+    --yellow: #fff3a8;
+    --pink: #f49bb7;
+    --red: #d95768;
+    --text: #5b4779;
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    background: #cbb5ed;
+    color: var(--text);
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   GENERAL SCREEN
+   ========================================================= */
+
+.screen {
+    min-height: 100vh;
+    width: 100%;
+
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 25px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            #ffffff55 0 3px,
+            transparent 4px
+        ),
+        radial-gradient(
+            circle at 75% 15%,
+            #ffffff44 0 4px,
+            transparent 5px
+        ),
+        radial-gradient(
+            circle at 30% 80%,
+            #ffffff33 0 3px,
+            transparent 4px
+        ),
+        #cbb5ed;
+}
+
+
+/* ONLY ACTIVE SCREEN IS VISIBLE */
+
+.screen.active {
+    display: flex;
+}
+
+
+/* =========================================================
+   DECORATIVE STARS
+   ========================================================= */
+
+.star {
+    position: absolute;
+    color: #fff7cf;
+    font-size: 25px;
+    opacity: .8;
+    animation: twinkle 2s infinite alternate;
+}
+
+.s1 {
+    top: 8%;
+    left: 8%;
+}
+
+.s2 {
+    top: 15%;
+    right: 10%;
+    animation-delay: .5s;
+}
+
+.s3 {
+    bottom: 15%;
+    left: 12%;
+    animation-delay: 1s;
+}
+
+.s4 {
+    bottom: 10%;
+    right: 8%;
+    animation-delay: 1.5s;
+}
+
+@keyframes twinkle {
+
+    from {
+        transform: scale(.7) rotate(0deg);
+        opacity: .4;
+    }
+
+    to {
+        transform: scale(1.15) rotate(15deg);
+        opacity: 1;
+    }
+
+}
+
+
+/* =========================================================
+   WAVY PAPER CARD
+   ========================================================= */
+
+.paper {
+    width: min(92vw, 620px);
+
+    background: var(--cream);
+
+    padding: 35px 25px;
+
+    position: relative;
+
+    border: 5px solid var(--deep-purple);
+
+    border-radius: 32px;
+
+    box-shadow:
+        0 15px 0 rgba(94,63,140,.12),
+        0 25px 50px rgba(70,40,100,.18);
+
+    text-align: center;
+}
+
+.paper::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 8px;
+
+    border: 2px dashed #c2a7ed;
+
+    border-radius: 25px;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   TEXT
+   ========================================================= */
+
+.script {
+    font-family: Georgia, serif;
+    font-style: italic;
+}
+
+.big-title {
+    font-family: Georgia, serif;
+    font-style: italic;
+
+    font-size: clamp(42px, 11vw, 75px);
+
+    color: var(--deep-purple);
+
+    line-height: .9;
+
+    margin-bottom: 15px;
+}
+
+.subtitle {
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   BUTTON
+   ========================================================= */
+
+.btn {
+    border: 0;
+
+    background: var(--yellow);
+
+    color: var(--deep-purple);
+
+    padding: 14px 30px;
+
+    border-radius: 30px;
+
+    font-weight: bold;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    box-shadow: 0 5px 0 #d8c866;
+
+    transition: .25s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}
+
+.btn:active {
+    transform: translateY(2px);
+
+    box-shadow: 0 2px 0 #d8c866;
+}
+
+
+/* =========================================================
+   🔐 PASSWORD SCREEN
+   ========================================================= */
+
+/*
+   IMPORTANT:
+   There is NO "#passwordScreen { display:flex; }" here.
+
+   This means the password screen behaves exactly like
+   every other .screen.
+
+   It is visible only while it has the "active" class.
+*/
+
+.lock {
+    font-size: 55px;
+    margin-bottom: 8px;
+}
+
+.password-title {
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: 45px;
+    color: var(--deep-purple);
+}
+
+.password-input {
+    margin: 20px auto;
+
+    display: block;
+
+    width: 120px;
+
+    border: 3px solid #c2a7ed;
+
+    background: white;
+
+    border-radius: 12px;
+
+    padding: 12px;
+
+    text-align: center;
+
+    font-size: 25px;
+
+    letter-spacing: 5px;
+
+    outline: none;
+
+    color: var(--deep-purple);
+}
+
+.password-input:focus {
+    border-color: var(--deep-purple);
+
+    box-shadow:
+        0 0 0 4px #e8dcff;
+}
+
+.keypad {
+    display: grid;
+
+    grid-template-columns: repeat(3, 55px);
+
+    justify-content: center;
+
+    gap: 10px;
+
+    margin: 20px auto;
+}
+
+.key {
+    height: 50px;
+
+    border: 0;
+
+    border-radius: 50%;
+
+    background: #eee2ff;
+
+    color: var(--deep-purple);
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+.key:hover {
+    transform: scale(1.08);
+
+    background: #dfceff;
+}
+
+.error {
+    height: 20px;
+
+    color: var(--red);
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   🐱 CUTE CAT
+   ========================================================= */
+
+.cat {
+    font-size: 95px;
+
+    margin: 15px auto;
+
+    animation: catFloat 3s ease-in-out infinite;
+}
+
+@keyframes catFloat {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+}
+
+
+/* =========================================================
+   YES / NO
+   ========================================================= */
+
+.question-buttons {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 25px;
+
+    margin-top: 25px;
+
+    position: relative;
+
+    min-height: 65px;
+}
+
+#noBtn {
+    position: relative;
+
+    transition: .15s;
+}
+
+
+/* =========================================================
+   🎂 BIRTHDAY SCREEN
+   ========================================================= */
+
+.birthday-title {
+    font-size: clamp(42px, 12vw, 80px);
+
+    font-family: Georgia, serif;
+
+    color: var(--red);
+
+    line-height: .95;
+
+    margin: 20px;
+}
+
+.cake {
+    font-size: 110px;
+
+    animation: cakeBounce 1.5s infinite;
+}
+
+@keyframes cakeBounce {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+
+}
+
+
+/* =========================================================
+   🎈 BALLOONS
+   ========================================================= */
+
+.balloon {
+    position: absolute;
+
+    font-size: 55px;
+
+    animation: balloonFloat 4s ease-in-out infinite;
+}
+
+.b1 {
+    left: 3%;
+    bottom: 10%;
+}
+
+.b2 {
+    right: 3%;
+    bottom: 20%;
+    animation-delay: .8s;
+}
+
+.b3 {
+    left: 12%;
+    top: 8%;
+    animation-delay: 1.2s;
+}
+
+@keyframes balloonFloat {
+
+    0%,100% {
+        transform: translateY(0) rotate(-4deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+
+}
+
+
+/* =========================================================
+   🎁 GIFTS
+   ========================================================= */
+
+.gifts {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-top: 30px;
+}
+
+.gift {
+    font-size: 75px;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+    filter:
+        drop-shadow(
+            0 7px 5px rgba(0,0,0,.15)
+        );
+}
+
+.gift:hover {
+    transform:
+        translateY(-10px)
+        rotate(-5deg)
+        scale(1.1);
+}
+
+.gift small {
+    display: block;
+
+    font-size: 11px;
+
+    color: var(--deep-purple);
+}
+
+
+/* =========================================================
+   🎁 POPUP
+   ========================================================= */
+
+.popup {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(70,40,90,.55);
+
+    display: none;
+
+    justify-content: center;
+
+    align-items: center;
+
+    z-index: 500;
+}
+
+.popup.active {
+    display: flex;
+}
+
+.popup-box {
+    width: 90%;
+
+    max-width: 430px;
+
+    background: var(--cream);
+
+    padding: 35px;
+
+    border-radius: 25px;
+
+    border: 5px solid var(--deep-purple);
+
+    text-align: center;
+
+    animation: pop .4s ease;
+}
+
+@keyframes pop {
+
+    from {
+        transform: scale(.7);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+}
+
+.popup-box h2 {
+    font-family: Georgia, serif;
+
+    color: var(--red);
+
+    margin-bottom: 15px;
+}
+
+.popup-box p {
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   ✉️ ENVELOPE
+   ========================================================= */
+
+.envelope {
+    width: 250px;
+
+    height: 165px;
+
+    background: #f5d9b8;
+
+    margin: 30px auto;
+
+    position: relative;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 15px 30px #75577c44;
+}
+
+.envelope::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    border-left:
+        125px solid transparent;
+
+    border-right:
+        125px solid transparent;
+
+    border-top:
+        90px solid #e7bd91;
+}
+
+.heart-seal {
+    position: absolute;
+
+    left: 50%;
+
+    top: 48%;
+
+    transform:
+        translate(-50%, -50%);
+
+    font-size: 40px;
+
+    z-index: 5;
+}
+
+
+/* =========================================================
+   💌 LETTER
+   ========================================================= */
+
+.letter {
+    text-align: left;
+
+    line-height: 1.8;
+
+    font-size: 16px;
+
+    padding: 25px;
+
+    background: #fffdf0;
+
+    border: 2px solid #e1c8ff;
+
+    border-radius: 12px;
+
+    margin-top: 20px;
+}
+
+.letter p {
+    margin-bottom: 16px;
+}
+
+
+/* =========================================================
+   🖼️ MUSEUM
+   ========================================================= */
+
+.museum-title {
+    font-family: Georgia, serif;
+
+    font-style: italic;
+
+    font-size: clamp(48px, 12vw, 80px);
+
+    color: var(--deep-purple);
+
+    margin-bottom: 30px;
+}
+
+.museum-title span {
+    color: var(--red);
+
+    font-style: normal;
+}
+
+.gallery {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 18px;
+
+    margin-top: 25px;
+}
+
+.photo {
+    background: white;
+
+    padding: 8px;
+
+    box-shadow:
+        0 8px 15px
+        rgba(60,30,80,.18);
+
+    transition: .3s;
+}
+
+.photo:nth-child(odd) {
+    transform: rotate(-4deg);
+}
+
+.photo:nth-child(even) {
+    transform: rotate(4deg);
+}
+
+.photo:hover {
+    transform:
+        rotate(0deg)
+        scale(1.04);
+}
+
+.photo img {
+    width: 100%;
+
+    aspect-ratio: 1/1;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.photo p {
+    padding: 8px 3px;
+
+    font-family: Georgia, serif;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   📅 CALENDAR
+   ========================================================= */
+
+.calendar {
+    margin: 30px auto;
+
+    max-width: 400px;
+
+    background: #fffbed;
+
+    border: 4px solid var(--deep-purple);
+
+    border-radius: 20px;
+
+    padding: 20px;
+}
+
+.month {
+    font-family: Georgia, serif;
+
+    font-size: 30px;
+
+    color: var(--red);
+
+    margin-bottom: 15px;
+}
+
+.days {
+    display: grid;
+
+    grid-template-columns:
+        repeat(7, 1fr);
+
+    gap: 7px;
+
+    font-size: 13px;
+}
+
+.day {
+    padding: 8px;
+
+    border-radius: 50%;
+}
+
+.birthday-day {
+    background: var(--pink);
+
+    color: white;
+
+    font-weight: bold;
+
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+
+    50% {
+        transform: scale(1.15);
+    }
+
+}
+
+
+/* =========================================================
+   ❤️ FINAL SCREEN
+   ========================================================= */
+
+.final-title {
+    font-family: Georgia, serif;
+
+    font-style: italic;
+
+    font-size: clamp(
+        45px,
+        11vw,
+        75px
+    );
+
+    color: var(--red);
+
+    line-height: 1;
+}
+
+.final-text {
+    max-width: 500px;
+
+    margin: 25px auto;
+
+    line-height: 1.8;
+
+    font-size: 17px;
+}
+
+
+/* =========================================================
+   💕 FLOATING HEARTS
+   ========================================================= */
+
+.floating-heart {
+    position: fixed;
+
+    bottom: -30px;
+
+    z-index: 999;
+
+    pointer-events: none;
+
+    animation:
+        rise 5s linear forwards;
+}
+
+@keyframes rise {
+
+    0% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translateY(-110vh)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+
+}
+
+
+/* =========================================================
+   📱 MOBILE
+   ========================================================= */
+
+@media(max-width:600px) {
+
+    .paper {
+        padding: 30px 18px;
+    }
+
+    .gallery {
+        gap: 12px;
+    }
+
+    .gift {
+        font-size: 60px;
+    }
+
+    .keypad {
+        grid-template-columns:
+            repeat(3, 52px);
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     🔐 SCREEN 1 — PASSWORD
+     ========================================================= -->
+
+<section class="screen active" id="passwordScreen">
+
+    <span class="star s1">✦</span>
+    <span class="star s2">✧</span>
+    <span class="star s3">✦</span>
+    <span class="star s4">✧</span>
+
+    <div class="paper">
+
+        <div class="lock">
+            🔐
+        </div>
+
+        <div class="password-title">
+            unlock
+        </div>
+
+        <p
+            class="script"
+            style="font-size:30px;"
+        >
+            for a surprise
+        </p>
+
+        <p style="margin-top:15px;">
+            Enter the secret passcode...
+        </p>
+
+        <!--
+            KEYBOARD TYPING IS NOW ENABLED.
+            readonly has been removed.
+        -->
+
+        <input
+            id="passcode"
+            class="password-input"
+            type="password"
+            maxlength="4"
+            inputmode="numeric"
+            autocomplete="off"
+            aria-label="Secret passcode"
+        >
+
+        <div class="keypad">
+
+            <button
+                class="key"
+                onclick="pressKey('1')"
+            >
+                1
+            </button>
+
+            <button
+                class="key"
+                onclick="pressKey('2')"
+            >
+                2
+            </button>
+
+            <button
+                class="key"
+                onclick="pressKey('3')"
+            >
+                3
+            </button>
+
+
+            <button
+                class="key"
+                onclick="pressKey('4')"
+            >
+                4
+            </button>
+
+            <button
+                class="key"
+                onclick="pressKey('5')"
+            >
+                5
+            </button>
+
+            <button
+                class="key"
+                onclick="pressKey('6')"
+            >
+                6
+            </button>
+
+
+            <button
+                class="key"
+                onclick="pressKey('7')"
+            >
+                7
+            </button>
+
+            <button
+                class="key"
+                onclick="pressKey('8')"
+            >
+                8
+            </button>
+
+            <button
+                class="key"
+                onclick="pressKey('9')"
+            >
+                9
+            </button>
+
+
+            <button
+                class="key"
+                onclick="clearPass()"
+            >
+                ⌫
+            </button>
+
+            <button
+                class="key"
+                onclick="pressKey('0')"
+            >
+                0
+            </button>
+
+            <button
+                class="key"
+                onclick="unlock()"
+            >
+                ✓
+            </button>
+
+        </div>
+
+        <div
+            class="error"
+            id="passwordError"
+        ></div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     🐱 SCREEN 2 — SURPRISE QUESTION
+     ========================================================= -->
+
+<section
+    class="screen"
+    id="questionScreen"
+>
+
+    <span class="star s1">✦</span>
+    <span class="star s2">✧</span>
+
+    <div class="paper">
+
+        <div class="cat">
+            🐱
+        </div>
+
+        <h1 style="font-family:Georgia,serif;">
+
+            I have a little
+
+            <br>
+
+            <span style="color:#d95768;">
+                surprise
+            </span>
+
+            for you.
+
+        </h1>
+
+        <p style="margin-top:15px;">
+            Wanna see it? 👀
+        </p>
+
+        <div class="question-buttons">
+
+            <button
+                class="btn"
+                onclick="showScreen('birthdayScreen')"
+            >
+                YES 💗
+            </button>
+
+            <button
+                class="btn"
+                id="noBtn"
+                onclick="runAway()"
+            >
+                NO 😭
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     🎂 SCREEN 3 — BIRTHDAY
+     ========================================================= -->
+
+<section
+    class="screen"
+    id="birthdayScreen"
+>
+
+    <div class="balloon b1">
+        🎈
+    </div>
+
+    <div class="balloon b2">
+        🎈
+    </div>
+
+    <div class="balloon b3">
+        🎈
+    </div>
+
+    <span class="star s1">✦</span>
+    <span class="star s2">★</span>
+    <span class="star s3">✧</span>
+    <span class="star s4">✦</span>
+
+    <div class="paper">
+
+        <p
+            class="script"
+            style="font-size:25px;"
+        >
+            today is your day ✨
+        </p>
+
+        <div class="cake">
+            🎂
+        </div>
+
+        <div class="birthday-title">
+            HAPPY<br>
+            BIRTHDAY!
+        </div>
+
+        <p class="subtitle">
+
+            To someone who deserves
+            a whole little universe today. 💜
+
+        </p>
+
+        <button
+            class="btn"
+            style="margin-top:25px;"
+            onclick="showScreen('giftScreen')"
+        >
+            there's more 👀
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     🎁 SCREEN 4 — GIFTS
+     ========================================================= -->
+
+<section
+    class="screen"
+    id="giftScreen"
+>
+
+    <span class="star s1">✦</span>
+    <span class="star s2">✧</span>
+
+    <div class="paper">
+
+        <h1 style="font-family:Georgia,serif;">
+            select any gift 🎁
+        </h1>
+
+        <p style="margin-top:10px;">
+
+            I may or may not have hidden
+            something inside each one...
+
+        </p>
+
+        <div class="gifts">
+
+            <div
+                class="gift"
+                onclick="openGift(1)"
+            >
+                🎁
+                <small>
+                    gift 01
+                </small>
+            </div>
+
+            <div
+                class="gift"
+                onclick="openGift(2)"
+            >
+                🎁
+                <small>
+                    gift 02
+                </small>
+            </div>
+
+            <div
+                class="gift"
+                onclick="openGift(3)"
+            >
+                🎁
+                <small>
+                    gift 03
+                </small>
+            </div>
+
+        </div>
+
+        <button
+            class="btn"
+            style="margin-top:35px;"
+            onclick="showScreen('envelopeScreen')"
+        >
+            okay, one last thing ✉️
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     🎁 GIFT POPUP
+     ========================================================= -->
+
+<div
+    class="popup"
+    id="giftPopup"
+>
+
+    <div class="popup-box">
+
+        <h2 id="giftTitle">
+            A little surprise 💗
+        </h2>
+
+        <p id="giftMessage"></p>
+
+        <button
+            class="btn"
+            style="margin-top:25px;"
+            onclick="closeGift()"
+        >
+            close 💜
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     ✉️ SCREEN 5 — ENVELOPE
+     ========================================================= -->
+
+<section
+    class="screen"
+    id="envelopeScreen"
+>
+
+    <div class="paper">
+
+        <p
+            class="script"
+            style="font-size:28px;"
+        >
+            something I wanted to tell you...
+        </p>
+
+        <div
+            class="envelope"
+            onclick="openLetter()"
+        >
+
+            <div class="heart-seal">
+                ❤️
+            </div>
+
+        </div>
+
+        <p>
+            Tap the envelope to open it.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     💌 SCREEN 6 — LETTER
+     ========================================================= -->
+
+<section
+    class="screen"
+    id="letterScreen"
+>
+
+    <div class="paper">
+
+        <h1
+            style="
+                font-family:Georgia,serif;
+                color:#d95768;
+            "
+        >
+            Dear Angel 💌
+        </h1>
+
+        <div class="letter">
+
+            <p>
+                Happy birthday, you idiot. 🤍
+            </p>
+
+            <p>
+                I wanted to do something a little
+                different for your birthday this year,
+                so here we are...
+            </p>
+
+            <p>
+                There are some people who become a part
+                of your life so naturally that you don't
+                even realise how important they have
+                become.
+            </p>
+
+            <p>
+                You are one of those people.
+            </p>
+
+            <p>
+                Thank you for all the conversations,
+                random moments, laughter, chaos and
+                memories.
+            </p>
+
+            <p>
+                I hope this year gives you more reasons
+                to smile than you can count.
+            </p>
+
+            <p>
+                And yes, I expect many more stupid
+                memories with you. 😂
+            </p>
+
+            <p>
+                Happy birthday once again. 💜
+            </p>
+
+            <p style="text-align:right;">
+                — SANIYA ♡
+            </p>
+
+        </div>
+
+        <button
+            class="btn"
+            style="margin-top:25px;"
+            onclick="showScreen('museumScreen')"
+        >
+            enter the museum 🖼️
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     🖼️ SCREEN 7 — MUSEUM OF US
+     ========================================================= -->
+
+<section
+    class="screen"
+    id="museumScreen"
+>
+
+    <div class="paper">
+
+        <div class="museum-title">
+            museum <span>of us</span>
+        </div>
+
+        <p>
+            A very small collection of
+            moments I never want to forget.
+        </p>
+
+        <div class="gallery">
+
+            <div class="photo">
+
+                <img
+                    src="photo1.jpg"
+                    alt="Memory 1"
+                >
+
+                <p>
+                    Exhibit 01 — the beginning.
+                </p>
+
+            </div>
+
+
+            <div class="photo">
+
+                <img
+                    src="photo2.jpg"
+                    alt="Memory 2"
+                >
+
+                <p>
+                    Exhibit 02 — chaos.
+                </p>
+
+            </div>
+
+
+            <div class="photo">
+
+                <img
+                    src="photo3.jpg"
+                    alt="Memory 3"
+                >
+
+                <p>
+                    Exhibit 03 — one of my favourites.
+                </p>
+
+            </div>
+
+
+            <div class="photo">
+
+                <img
+                    src="photo4.jpg"
+                    alt="Memory 4"
+                >
+
+                <p>
+                    Exhibit 04 — us being us.
+                </p>
+
+            </div>
+
+        </div>
+
+        <button
+            class="btn"
+            style="margin-top:35px;"
+            onclick="showScreen('calendarScreen')"
+        >
+            one more thing 📅
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     📅 SCREEN 8 — CALENDAR
+     ========================================================= -->
+
+<section
+    class="screen"
+    id="calendarScreen"
+>
+
+    <div class="paper">
+
+        <p
+            class="script"
+            style="font-size:28px;"
+        >
+            mark this day
+        </p>
+
+        <h1 style="font-family:Georgia,serif;">
+            your day ♡
+        </h1>
+
+        <div class="calendar">
+
+            <div class="month">
+                OCTOBER
+            </div>
+
+            <div class="days">
+
+                <div>M</div>
+                <div>T</div>
+                <div>W</div>
+                <div>T</div>
+                <div>F</div>
+                <div>S</div>
+                <div>S</div>
+
+                <div></div>
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+                <div class="birthday-day">
+                   5 
+                 </div>
+                <div>6</div>
+
+                <div>7</div>
+                <div>8</div>
+                <div>9</div>
+
+                <div>10</div>
+
+                <div>11</div>
+                <div>12</div>
+                <div>13</div>
+
+                <div>14</div>
+                <div>15</div>
+                <div>16</div>
+                <div>17</div>
+                <div>18</div>
+                <div>19</div>
+                <div>20</div>
+ </div>
+
+        <p
+            class="script"
+            style="font-size:22px;"
+        >
+            because apparently one day
+            wasn't enough to celebrate you. 🎀
+        </p>
+
+        <button
+            class="btn"
+            style="margin-top:30px;"
+            onclick="showScreen('finalScreen')"
+        >
+            okay... final surprise 💌
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     ❤️ FINAL SCREEN
+     ========================================================= -->
+
+<section
+    class="screen"
+    id="finalScreen"
+>
+
+    <span class="star s1">✦</span>
+    <span class="star s2">★</span>
+    <span class="star s3">✧</span>
+    <span class="star s4">✦</span>
+
+    <div class="paper">
+
+        <div style="font-size:70px;">
+            🎂
+        </div>
+
+        <div class="final-title">
+            Happy<br>
+            Birthday Angel!
+        </div>
+
+        <p class="final-text">
+
+            I hope you smiled while going
+            through this little corner of the
+            internet.
+
+            <br><br>
+
+            You deserve beautiful things,
+            beautiful people,
+            beautiful memories
+            and a year full of reasons
+            to be happy.
+
+            <br><br>
+
+            Here's to another year
+            of being you. 💜
+
+            <br><br>
+
+            <b>
+                Happy Birthday, Angel. ♡
+            </b>
+
+        </p>
+
+        <button
+            class="btn"
+            onclick="startHearts()"
+        >
+            Thank you ✨
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<script>
+
+
+/* =========================================================
+   ✏️ CHANGE YOUR PASSWORD HERE
+   ========================================================= */
+
+const SECRET_PASSWORD = "0510";
+
+
+/* =========================================================
+   💕 HEART INTERVAL
+   ========================================================= */
+
+/*
+   This prevents multiple heart intervals from being
+   created if the button is clicked more than once.
+*/
+
+let heartsStarted = false;
+let heartsInterval = null;
+
+
+/* =========================================================
+   SCREEN CHANGER
+   ========================================================= */
+
+function showScreen(id) {
+
+    document
+        .querySelectorAll(".screen")
+        .forEach(screen => {
+
+            screen.classList.remove("active");
+
+        });
+
+
+    const nextScreen =
+        document.getElementById(id);
+
+
+    if (nextScreen) {
+
+        nextScreen.classList.add("active");
+
+    }
+
+
+    window.scrollTo(0, 0);
+
+}
+
+
+/* =========================================================
+   🔐 PASSWORD — SCREEN KEYPAD
+   ========================================================= */
+
+function pressKey(number) {
+
+    const input =
+        document.getElementById("passcode");
+
+    const error =
+        document.getElementById("passwordError");
+
+
+    if (input.value.length < 4) {
+
+        input.value += number;
+
+        error.innerText = "";
+
+    }
+
+}
+
+
+/* =========================================================
+   🔐 PASSWORD — CLEAR
+   ========================================================= */
+
+function clearPass() {
+
+    const input =
+        document.getElementById("passcode");
+
+    const error =
+        document.getElementById("passwordError");
+
+
+    input.value = "";
+
+    error.innerText = "";
+
+    input.focus();
+
+}
+
+
+/* =========================================================
+   🔐 PASSWORD — UNLOCK
+   ========================================================= */
+
+function unlock() {
+
+    const input =
+        document.getElementById("passcode");
+
+    const error =
+        document.getElementById("passwordError");
+
+
+    if (input.value === SECRET_PASSWORD) {
+
+        /*
+           THIS IS THE IMPORTANT PART.
+
+           The password screen loses the "active" class
+           because showScreen() removes "active" from
+           ALL screens first.
+
+           Then questionScreen gets "active".
+
+           Therefore the password screen disappears.
+        */
+
+        showScreen("questionScreen");
+
+
+        input.value = "";
+
+        error.innerText = "";
+
+
+        startHearts();
+
+    }
+
+    else {
+
+        error.innerText =
+            "Wrong code... try again 👀";
+
+        input.value = "";
+
+        input.focus();
+
+    }
+
+}
+
+
+/* =========================================================
+   ⌨️ KEYBOARD PASSWORD SUPPORT
+   ========================================================= */
+
+const passwordInput =
+    document.getElementById("passcode");
+
+
+/*
+   Only allow numbers when typing.
+
+   This makes the keyboard behave like the
+   on-screen numeric keypad.
+*/
+
+passwordInput.addEventListener(
+    "input",
+    function () {
+
+        this.value =
+            this.value
+                .replace(/\D/g, "")
+                .slice(0, 4);
+
+        document
+            .getElementById("passwordError")
+            .innerText = "";
+
+    }
+);
+
+
+/*
+   Press ENTER to unlock.
+*/
+
+passwordInput.addEventListener(
+    "keydown",
+    function (event) {
+
+        if (event.key === "Enter") {
+
+            event.preventDefault();
+
+            unlock();
+
+        }
+
+    }
+);
+
+
+/*
+   Make BACKSPACE behave normally.
+*/
+
+passwordInput.addEventListener(
+    "keydown",
+    function (event) {
+
+        if (event.key === "Backspace") {
+
+            document
+                .getElementById("passwordError")
+                .innerText = "";
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   😂 NO BUTTON RUNS AWAY
+   ========================================================= */
+
+function runAway() {
+
+    const button =
+        document.getElementById("noBtn");
+
+
+    const x =
+        (Math.random() * 200) - 100;
+
+
+    const y =
+        (Math.random() * 120) - 60;
+
+
+    button.style.transform =
+        `translate(${x}px, ${y}px)`;
+
+}
+
+
+/* =========================================================
+   🎁 GIFTS
+   ========================================================= */
+
+function openGift(number) {
+
+    const popup =
+        document.getElementById("giftPopup");
+
+    const title =
+        document.getElementById("giftTitle");
+
+    const message =
+        document.getElementById("giftMessage");
+
+
+    if (number === 1) {
+
+        title.innerText =
+            "Gift 01 — A Memory 📸";
+
+        message.innerText =
+            "Remember that freshers' day we embarrased you a lot, kya karte naach hi nahi rhi thi tu aur vo bhi isliye nhi ki tujhe aata nhi hai cuz you are a little introvert aur tujhe aise sharam aarhi thi, but i got you main har baar tujhe pakad pakad kr aise hi nachati thi, nachati hu, aur nachati rahungi. ALWAYS AND FOREVER. So be ready i'll never leave you alone and will be your sar dardi forever.";}
+
+
+    if (number === 2) {
+
+        title.innerText =
+            "Gift 02 — A Secret 🤫";
+
+        message.innerText =
+            "You're genuinely one of my favourite people to annoy. And yes, I will continue doing it.";
+
+    }
+
+
+    if (number === 3) {
+
+        title.innerText =
+            "Gift 03 — A Wish ✨";
+
+        message.innerText =
+            "I hope this year brings you opportunities you never expected, happiness you didn't know you needed, and lots of reasons to smile.";
+
+    }
+
+
+    popup.classList.add("active");
+
+}
+
+
+/* =========================================================
+   🎁 CLOSE GIFT
+   ========================================================= */
+
+function closeGift() {
+
+    document
+        .getElementById("giftPopup")
+        .classList.remove("active");
+
+}
+
+
+/* =========================================================
+   ✉️ ENVELOPE
+   ========================================================= */
+
+function openLetter() {
+
+    showScreen("letterScreen");
+
+}
+
+
+/* =========================================================
+   💕 FLOATING HEARTS
+   ========================================================= */
+
+function startHearts() {
+
+    /*
+       Prevent creating multiple setIntervals.
+    */
+
+    if (heartsStarted) {
+        return;
+    }
+
+    heartsStarted = true;
+
+
+    heartsInterval = setInterval(() => {
+
+        const heart =
+            document.createElement("div");
+
+
+        heart.className =
+            "floating-heart";
+
+
+        const choices = [
+            "💜",
+            "💗",
+            "♡",
+            "♥",
+            "✨",
+            "🎀"
+        ];
+
+
+        heart.innerText =
+            choices[
+                Math.floor(
+                    Math.random() *
+                    choices.length
+                )
+            ];
+
+
+        heart.style.left =
+            Math.random() * 100 + "vw";
+
+
+        heart.style.fontSize =
+            (18 + Math.random() * 20) + "px";
+
+
+        heart.style.animationDuration =
+            (4 + Math.random() * 3) + "s";
+
+
+        document.body.appendChild(heart);
+
+
+        setTimeout(() => {
+
+            heart.remove();
+
+        }, 7000);
+
+
+    }, 500);
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
